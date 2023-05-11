@@ -1,7 +1,7 @@
 const button = document.querySelector("#enter");
 const list = document.querySelector("#list");
 const input = document.getElementById("new-todo");
-const showDate = document.getElementById("show-date");
+const showDateButton = document.getElementById("show-date");
 const paragraph = document.getElementById("paragraph");
 
 button.addEventListener('click', (event) => {
@@ -23,15 +23,15 @@ button.addEventListener('click', (event) => {
     
 })
 
-showDate.addEventListener('click', (event) =>{
-    const showDate = document.createElement("p");
-    // if (paragraph.value == null)}
-        showDate.innerText = new Date;
-        paragraph.appendChild(showDate);
-        const newDate = showDate.getAttribute("data-showDate");
+showDateButton.addEventListener('click', (event) =>{
+        const newDate = paragraph.getAttribute("data-showDate");
         const datePresent = newDate === "true";
-        const booleanInvented = !datePresent;
-        showDate.setAttribute("data-showDate", booleanInvented);
-    
+        const booleanInvented = !datePresent;   
+        paragraph.setAttribute("data-showDate", booleanInvented);        
+        const showDate = document.createElement("p");
+    if (newDate === "true"){
+        showDate.innerText = Date();
+        paragraph.appendChild(showDate);
+    }
 });
 
