@@ -27,11 +27,15 @@ showDateButton.addEventListener('click', (event) =>{
         const newDate = paragraph.getAttribute("data-showDate");
         const datePresent = newDate === "true";
         const booleanInvented = !datePresent;   
-        paragraph.setAttribute("data-showDate", booleanInvented);        
+        paragraph.setAttribute("data-showDate", booleanInvented);
+
         const showDate = document.createElement("p");
-    if (newDate === "true"){
+    if (newDate === "false"){
         showDate.innerText = Date();
         paragraph.appendChild(showDate);
+    } else if(newDate === "true"){
+        showDate.innerText = Date();
+        paragraph.removeChild(paragraph.lastChild);
     }
 });
 
